@@ -1,120 +1,124 @@
-# Projeto Diamante 01 - API REST com Spring Boot
+# 🚀 Projeto Diamante - API REST com Spring Boot
 
-Este projeto foi desenvolvido para atender aos requisitos do **Projeto Diamante 01** da disciplina **Java Advanced**.
+## 📌 Descrição
+Este projeto foi desenvolvido como parte da disciplina **Java Advanced** com o objetivo de aplicar os conceitos vistos em aula na construção de uma **API REST completa** utilizando o ecossistema Spring.
 
-## Requisitos atendidos
+A aplicação realiza o gerenciamento de **Dragões** e **Reinos**, permitindo operações completas de CRUD (Create, Read, Update, Delete), além de integração com banco de dados relacional.
 
-- API REST com Spring Boot
-- CRUD completo de duas entidades: **Dragon** e **Reino**
-- Tipos de dados variados: `String`, `Integer`, `Double`, `Boolean` e relacionamento entre entidades
-- Endpoints seguindo padrão REST
-- Persistência com Spring Data JPA
-- Banco de dados relacional H2
-- Endpoint de teste da API (`/health`)
+---
 
-## Tecnologias utilizadas
+## 👨‍💻 Integrantes
+- Raphael Gomes Mancera - RM562279
+- Guilherme De Andrade Martini - RM566087
 
+---
+
+## 🛠️ Tecnologias Utilizadas
 - Java 17
-- Spring Boot 3
-- Spring Web
+- Spring Boot
 - Spring Data JPA
-- H2 Database
-- Spring Validation
-- Swagger / OpenAPI
+- H2 Database (banco em memória)
+- Swagger (OpenAPI)
+- Maven
 
-## Estrutura do projeto
+---
 
-```text
-src/main/java/br/com/fiap/projetodiamante
-├── controller
-├── model
-├── repository
-├── service
-└── ProjetoDiamanteDragonsApiApplication.java
-```
+## ⚙️ Funcionalidades
+- CRUD completo de Dragões
+- CRUD completo de Reinos
+- Relacionamento entre entidades
+- Persistência com banco de dados H2
+- Documentação automática com Swagger
+- Endpoint de verificação da API (Health Check)
 
-## Como executar
+---
 
-1. Abra o projeto na IDE
-2. Aguarde o Maven baixar as dependências
-3. Execute a classe:
+## 📂 Estrutura do Projeto
+controller → Camada de endpoints (API REST)
+service → Regras de negócio
+repository → Acesso ao banco de dados
+model → Entidades do sistema
+config → Configurações gerais
 
-```java
-ProjetoDiamanteDragonsApiApplication
-```
 
-4. A API estará disponível em:
+---
 
-```text
-http://localhost:8080
-```
+## ▶️ Como Executar o Projeto
 
-## Endpoints principais
+### Pré-requisitos:
+- Java 17 instalado
+- Maven configurado
+- IntelliJ ou outra IDE
 
-### Health check
-- `GET /health`
+### Passos:
+1. Clone o repositório:git clone https://github.com/seu-usuario/projeto-diamante-api.git
 
-### CRUD de dragões
-- `GET /dragons`
-- `GET /dragons/{id}`
-- `POST /dragons`
-- `PUT /dragons/{id}`
-- `DELETE /dragons/{id}`
 
-### CRUD de reinos
-- `GET /reinos`
-- `GET /reinos/{id}`
-- `POST /reinos`
-- `PUT /reinos/{id}`
-- `DELETE /reinos/{id}`
 
-## Swagger
+2. Abra o projeto na IDE
 
-A documentação pode ser acessada em:
+3. Execute a classe principal:ProjetoDiamanteDragonsApiApplication
 
-```text
-http://localhost:8080/swagger-ui.html
-```
 
-## Console do H2
+4. A aplicação estará disponível em:http://localhost:8080
 
-```text
+
+---
+
+## 📡 Endpoints da API
+
+### 🔹 Dragões
+- GET `/dragons` → Listar todos
+- GET `/dragons/{id}` → Buscar por ID
+- POST `/dragons` → Criar
+- PUT `/dragons/{id}` → Atualizar
+- DELETE `/dragons/{id}` → Deletar
+
+### 🔹 Reinos
+- GET `/reinos` → Listar todos
+- GET `/reinos/{id}` → Buscar por ID
+- POST `/reinos` → Criar
+- PUT `/reinos/{id}` → Atualizar
+- DELETE `/reinos/{id}` → Deletar
+
+---
+
+## ❤️ Health Check
+Endpoint para verificar se a API está funcionando:
+GET /health
+
+
+Resposta esperada:
+```json
+{
+  "status": "UP",
+  "mensagem": "API do Projeto Diamante funcionando com sucesso"
+}
+
+
+📊 Banco de Dados (H2)
+
+A aplicação utiliza banco em memória (H2).
+
+Acesso ao console:
 http://localhost:8080/h2-console
-```
+Configuração:
+JDBC URL:
+jdbc:h2:mem:dragondb
+User:
+sa
+Password:
+(vazio)
+📄 Documentação (Swagger)
 
-Use:
+Acesse a documentação interativa da API:
 
-- **JDBC URL:** `jdbc:h2:mem:dragondb`
-- **User Name:** `sa`
-- **Password:** deixe em branco
+http://localhost:8080/swagger-ui.html
+🎯 Conclusão
 
-## Exemplos de JSON
+O projeto atende todos os requisitos propostos, demonstrando a aplicação prática de:
 
-### POST /reinos
-
-```json
-{
-  "nome": "Winterfell",
-  "regiao": "Norte",
-  "quantidadeCastelos": 7,
-  "reinoAliado": true
-}
-```
-
-### POST /dragons
-
-```json
-{
-  "nome": "Syrax",
-  "cor": "Amarela",
-  "poderDeFogo": 820,
-  "peso": 980.5,
-  "altura": 12.4,
-  "possuiMontador": true,
-  "reino": {
-    "id": 1
-  }
-}
-```
-
-Se quiser usar junto com o front enviado pelo professor, os endpoints de `Dragon` já estão prontos no caminho `/dragons`.
+Arquitetura REST
+Persistência com JPA
+Organização em camadas
+Boas práticas com Spring Boot
